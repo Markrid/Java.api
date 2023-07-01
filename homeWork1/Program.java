@@ -65,6 +65,7 @@ public class Program {
     static void task3() {
 
         System.out.println("Добро пожаловать в калькулятор");
+        while (true) {
         System.out.println("Введите первое число: ");
         int a = Integer.parseInt(scanner.nextLine());
         System.out.println("Выбирете знак:\n\t1 - +\n\t2 - -\n\t3 - /\n\t4 - *");
@@ -75,26 +76,23 @@ public class Program {
         switch (z) {
             case 1:
                 int res1 = a + b;
-                System.out.printf("Сумма %d и %d равна %d", a, b, res1);
+                System.out.printf("Сумма %d и %d равна %d \n", a, b, res1);
                 break;
             case 2:
                 int res2 = a - b;
-                System.out.printf("Разность %d и %d равна %d", a, b, res2);
+                System.out.printf("Разность %d и %d равна %d \n", a, b, res2);
                 break;
             case 3:
-                double res3 = a / b;
-                System.out.printf("%d разделить на %d равно %.2f", a, b, res3);
+                double number1 = a;
+                double number2 = b;
+                double res3 =  number1 / number2;
+                System.out.printf("%.0f разделить на %.0f равно %.2f \n", number1, number2, res3);
                 break;
             case 4:
                 int res4 = a * b;
-                System.out.printf("Произедение %d и %d равно %d", a, b, res4);
+                System.out.printf("Произедение %d и %d равно %d \n", a, b, res4);
                 break;
-            
+            }
         }
-
+    }
 }
-
-// 4) (дополнительное задание) Задано уравнение вида q + w = e, q, w, e >= 0.
-// Некоторые цифры могут быть заменены знаком вопроса, например, 2? + ?5 = 69.
-// Требуется восстановить выражение до верного равенства. Предложить хотя бы
-// одно решение или сообщить, что его нет.

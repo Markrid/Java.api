@@ -1,21 +1,27 @@
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Program{
 
+    static Scanner scanner = new Scanner(System.in);
+    static Random random = new Random();
+
     public static void main(String[] args)throws IOException{
         
-        task();
+        //task1(); // Улучшенный калькулятор
+        task2(); // Сортировка пузырьком с записью в файл
 
+        
     }        
         
-    
-        static Scanner scanner = new Scanner(System.in);
-        
-        static void task() throws IOException{
+          
+               
+        static void task1() throws IOException{
 
             File log = new File("log.txt");
             FileWriter fw = new FileWriter(log, true);
@@ -66,4 +72,35 @@ public class Program{
             }
         }
     }
+
+    static void task2() throws IOException{
+
+            File logSort = new File("logSort.txt");
+            FileWriter fileW = new FileWriter(logSort, true);
+
+        System.out.println("Будем сортировать");
+  
+        int[] array = new int[random.nextInt(10,21)];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = random.nextInt(0,30);
+        }
+
+        System.out.println("Сгенерированный массив :" + Arrays.toString(array));
+        int size = array.length;
+        int temp;
+        for (int i = 1; i < size; i++) {
+            for (int j = 0; j < size-i; j++) {
+                if (array[j] > array[j+1]) {
+                temp = array[j];
+                array[j] = array[j+1];
+                array[j+1] = temp;
+            }
+            }
+            fileW.write(Arrays.toString(array)+"\n");
+            fileW.flush();
+        }
+        fileW.close();
+        System.out.println("Итог :" + Arrays.toString(array));
+    }
+
 }
